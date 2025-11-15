@@ -2,195 +2,212 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Free Training Access</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Escape Plan ISI Affiliate System</title>
- 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background: #0A1A3A; /* 🔵 dunkelblauer Hintergrund */
-      font-family: Arial, Helvetica, sans-serif;
-      color: #FFFFFF;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    /* Glow Animation */
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #ffffff40; }
-      50% { text-shadow: 0 0 25px #ffffffaa; }
-      100% { text-shadow: 0 0 10px #ffffff40; }
-    }
-
-    /* Button Pulse */
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-      100% { transform: scale(1); }
-    }
-
-    /* NEW blinking */
-    @keyframes blink {
-      0%, 90% { opacity: 1; }
-      95% { opacity: 0.3; }
-      100% { opacity: 1; }
-    }
-
-    .wrapper {
-      width: 100%;
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px 80px;
-    }
-
-    .headline {
-      font-size: 44px;
-      font-weight: 900;
-      text-transform: uppercase;
-      animation: glow 3s infinite ease-in-out;
-      margin-bottom: 10px;
-    }
-
-    .subcta {
-      font-size: 38px;
-      font-weight: 900;
-      color: #FFDD00; /* Gelb */
-      margin-bottom: 25px;
-      text-transform: uppercase;
-    }
-
-    .line3 {
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .new {
-      color: #FF1A1A; /* Rot */
-      font-weight: 900;
-      animation: blink 4s infinite;
-    }
-
-    .line4 {
-      font-size: 34px;
-      font-weight: 900;
-      margin-top: 10px;
-    }
-
-    .yes { color: #FF1A1A; }
-    .payout { color: #FFD700; /* Gold */ }
-
-    .benefits {
-      margin-top: 10px;
-      font-size: 22px;
-      opacity: 0.95;
-    }
-
-    .image-row {
-      margin-top: 40px;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      background: #000;
+      font-family: Arial, sans-serif;
     }
 
-    .image-row img {
-      max-width: 280px;
+    .image-wrapper {
+      max-width: 100%;
+      cursor: pointer;
+    }
+
+    .image-wrapper img {
+      display: block;
+      max-width: 100%;
       height: auto;
-      filter: drop-shadow(0 0 14px #000000);
-    }
-
-    .money {
       border-radius: 8px;
-      filter: drop-shadow(0 0 20px #000000);
     }
 
-    .optin-form {
-      margin-top: 35px;
+    /* Modal overlay */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    /* Modal box */
+    .modal {
+      background: #ffffff;
+      border-radius: 10px;
+      max-width: 420px;
+      width: 90%;
+      padding: 24px 24px 18px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      border: none;
+      background: transparent;
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal h2 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .modal p.subline {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 16px;
+    }
+
+    .modal p.guarantee {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 8px;
+    }
+
+    form {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 15px;
+      gap: 10px;
+      margin-top: 8px;
     }
 
-    .optin-form input {
-      width: 90%;
-      max-width: 500px;
-      padding: 14px 16px;
-      font-size: 17px;
-      border-radius: 4px;
-      border: none;
+    form input[type="email"],
+    form input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 0.95rem;
     }
 
-    .cta-btn {
-      margin-top: 12px;
-      background: #FFDD00;
-      color: #000;
-      font-size: 23px;
-      padding: 18px 20px;
-      font-weight: 800;
+    form button[type="submit"] {
+      margin-top: 4px;
+      padding: 11px 14px;
+      border-radius: 6px;
       border: none;
-      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
       cursor: pointer;
-      width: 90%;
-      max-width: 650px;
-      animation: pulse 2.8s infinite ease-in-out;
+      background: #ff9900;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
 
-    .cta-btn:hover {
-      filter: brightness(0.88);
+    form button[type="submit"]:hover {
+      filter: brightness(0.95);
     }
 
-    @media (max-width: 768px) {
-      .headline { font-size: 32px; }
-      .subcta { font-size: 28px; }
-      .line3 { font-size: 24px; }
-      .line4 { font-size: 26px; }
-      .benefits { font-size: 18px; }
-      .image-row { flex-direction: column; gap: 20px; }
+    .modal small {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: #999;
     }
   </style>
 </head>
-
 <body>
 
-  <div class="wrapper">
-
-    <div class="headline">TURN Zero Dollar INTO 10,000 — FAST!</div>
-
-    <div class="subcta">TAKE ACTION NOW — BEFORE OTHERS DO!</div>
-
-    <div class="line3">
-      This <span class="new">BRAND&nbsp;NEW</span> Affiliate Platform Pays Up To
-    </div>
-
-    <div class="line4">
-      <span class="yes">YES!</span>
-      <span class="payout">$10,000 PER SALE</span>
-    </div>
-
-    <div class="benefits">
-      $10k–$30k Monthly • Instant Weekly Payouts • Long-Term Residual Income
-    </div>
-
-    <div class="image-row">
-      <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhycmkm-Nn7vMqQi3KoPwmzm3K6DhjI2FtyJtliC9lSQaYm567h-l-SuPCXLFkXta5f1P1NIrvXs_okLjxrovXkIvPjFCxQMUXg-8d8Q3ioxJcUVG1r3Jl5wELVa7m1jsdhzfm9dRPxebCY-W9lF9E3TPHKUqfKM4ZheUDS9SiafZt1fPW7VEfV30DJ=s320">
-      
-      <img class="money" src="https://imgallery.llsvr.com/sherrodlowe.62afdd3bcaef4.png">
-    </div>
-    <form method="post" action="https://www.sendsteed.com/subscribe/" class="optin-form">
-      <input name="e116667" required type="text" placeholder="your@email.com">
-      <input type="hidden" name="lllid" value="116667">
-      <input type="hidden" name="lluid" value="sandyarta">
-      <input type="hidden" name="redirect" value="">
-      <input type="hidden" name="source" value="">
-
-      <button type="submit" class="cta-btn">
-        Unlock Your Escape Plan — Start Earning Today
-      </button>
-    </form>
-
+  <!-- CLICKABLE IMAGE ONLY -->
+  <div class="image-wrapper" id="openModal">
+    <img src="https://s3content.s3.amazonaws.com/primemover/frontend-gifs/ol-splashpage-4.gif" 
+         alt="Free Training" />
   </div>
 
+  <!-- POPUP MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="closeModal" aria-label="Close popup">&times;</button>
+
+      <h2>Where should we send your free training?</h2>
+      <p class="subline">
+        Enter your best email below to get instant access and start today.
+      </p>
+
+      <!-- YOUR EMAIL FORM (SendSteed) -->
+      <form method="post" action="https://www.sendsteed.com/subscribe/">
+        <input
+          name="e116667"
+          required
+          type="email"
+          placeholder="Your best email address…"
+        >
+        <input
+          name="n116667"
+          required
+          type="text"
+          placeholder="Your first name…"
+        >
+
+        <input type="hidden" name="lllid" value="116667">
+        <input type="hidden" name="lluid" value="sandyarta">
+        <input type="hidden" name="redirect" value="">
+        <input type="hidden" name="source" value="">
+
+        <button type="submit">Send Me The Training Now</button>
+      </form>
+
+      <p class="guarantee">
+        No spam. You can unsubscribe anytime.
+      </p>
+      <small>
+        By clicking the button, you agree to receive helpful emails about this training.
+      </small>
+    </div>
+  </div>
+
+  <script>
+    const openModalTrigger = document.getElementById('openModal');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    function openModal() {
+      modalOverlay.classList.add('active');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+    }
+
+    openModalTrigger.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+
+    // Close when clicking outside the modal
+    modalOverlay.addEventListener('click', function (e) {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
