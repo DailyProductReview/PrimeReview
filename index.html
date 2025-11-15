@@ -2,739 +2,204 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Honest Reviews</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Brutally honest reviews with images, key insights and direct links." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escape Plan ISI Affiliate System</title>
 
   <style>
-    :root {
-      --bg: #050816;
-      --bg-alt: #0b1020;
-      --accent: #f4b400;
-      --accent-soft: rgba(244, 180, 0, 0.12);
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --card: #111827;
-      --border: #1f2937;
-      --danger: #ef4444;
-      --success: #22c55e;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
-      --radius-lg: 18px;
-      --radius-xl: 26px;
-      --transition-fast: 180ms ease-out;
-      --transition-med: 220ms ease;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 45%, #020617 100%);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 24px 18px 40px;
-      width: 100%;
-    }
-
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-bottom: 28px;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.6));
-      backdrop-filter: blur(12px);
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 14px rgba(244, 180, 0, 0.9);
-    }
-
-    .title-row {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    h1 {
-      font-size: clamp(28px, 6vw, 40px);
-      line-height: 1.1;
-      margin: 0;
-    }
-
-    h1 span.accent {
-      color: var(--accent);
-    }
-
-    .subtitle {
-      max-width: 580px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-    }
-
-    .hero-meta strong {
-      color: var(--success);
-    }
-
-    .hero-meta .divider {
-      width: 1px;
-      height: 14px;
-      background: rgba(148, 163, 184, 0.4);
-    }
-
-    /* CTA bar */
-    .cta-bar {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .cta-main {
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(249, 250, 251, 0.08);
-      background: radial-gradient(circle at top left, rgba(244, 180, 0, 0.2), transparent 55%);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
-    }
-
-    .cta-main:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
-      border-color: rgba(244, 180, 0, 0.6);
-      background: radial-gradient(circle at top left, rgba(244, 180, 0, 0.26), transparent 60%);
-    }
-
-    .cta-main-label {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-    }
-
-    .cta-main-sub {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .cta-pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--danger);
-      box-shadow: 0 0 14px rgba(248, 113, 113, 0.9);
-      position: relative;
-    }
-
-    .cta-pulse-dot::after {
-      content: "";
-      position: absolute;
-      inset: -4px;
-      border-radius: inherit;
-      border: 1px solid rgba(248, 113, 113, 0.8);
-      opacity: 0.5;
-    }
-
-    .cta-note {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    /* Main layout */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.1fr);
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 860px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    /* Review grid */
-    .reviews-section {
-      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.98));
-      border-radius: var(--radius-xl);
-      padding: 18px 16px 16px;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .section-title h2 {
-      margin: 0;
-      font-size: 16px;
-    }
-
-    .section-title span {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .filter-chip {
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      font-size: 11px;
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: default;
-    }
-
-    .filter-chip span.dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 14px;
-    }
-
-    .review-card {
-      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.03), transparent 50%),
-                  linear-gradient(160deg, #020617, #020617 22%, #020617 65%, #030712);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-      position: relative;
-      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
-    }
-
-    .review-card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      background: conic-gradient(from 180deg at 50% 50%, rgba(244, 180, 0, 0.24), transparent 18%, transparent 60%, rgba(56, 189, 248, 0.22), transparent 82%, rgba(244, 180, 0, 0.24));
-      opacity: 0;
-      transition: opacity var(--transition-med);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .review-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.95);
-      border-color: rgba(148, 163, 184, 0.72);
-    }
-
-    .review-card:hover::before {
-      opacity: 1;
-    }
-
-    .review-image-wrapper {
-      position: relative;
-      overflow: hidden;
-      border-radius: 18px;
-      margin: 10px 10px 0;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.6));
-    }
-
-    .review-image {
-      width: 100%;
-      display: block;
-      max-height: 170px;
-      object-fit: cover;
-      transition: transform var(--transition-med), opacity var(--transition-med);
-      opacity: 0.94;
-    }
-
-    .review-card:hover .review-image {
-      transform: scale(1.03);
-      opacity: 1;
-    }
-
-    .review-tag {
-      position: absolute;
-      left: 10px;
-      bottom: 10px;
-      padding: 4px 9px;
-      border-radius: 999px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.65);
-      color: var(--muted);
-      backdrop-filter: blur(14px);
-    }
-
-    .review-rating {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      background: rgba(15, 118, 110, 0.85);
-      color: #ecfdf5;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      backdrop-filter: blur(10px);
-    }
-
-    .review-rating span.stars {
-      font-size: 11px;
-    }
-
-    .review-body {
-      padding: 10px 12px 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .review-title-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .review-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .review-meta {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .review-text {
-      font-size: 12px;
-      color: #e5e7eb;
-      line-height: 1.4;
-    }
-
-    .review-link-btn {
-      margin-top: 4px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 7px 10px;
-      font-size: 12px;
-      font-weight: 500;
-      border-radius: 999px;
-      background: radial-gradient(circle at top left, rgba(244, 180, 0, 0.18), rgba(15, 23, 42, 0.95));
-      border: 1px solid rgba(248, 250, 252, 0.08);
-      color: var(--text);
-      cursor: pointer;
-      transition: background var(--transition-med), border-color var(--transition-med), transform var(--transition-fast), box-shadow var(--transition-fast);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .review-link-btn:hover {
-      background: radial-gradient(circle at top left, rgba(244, 180, 0, 0.32), rgba(15, 23, 42, 0.98));
-      border-color: rgba(244, 180, 0, 0.75);
-      transform: translateY(-1px);
-      box-shadow: 0 11px 22px rgba(15, 23, 42, 0.9);
-    }
-
-    .review-link-btn span.icon {
-      font-size: 13px;
-    }
-
-    /* Sidebar / How-to */
-    .sidebar {
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 1), rgba(2, 6, 23, 0.98));
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(30, 64, 175, 0.8);
-      padding: 16px 14px 14px;
-      color: var(--muted);
-      font-size: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 1);
-      position: sticky;
-      top: 14px;
-    }
-
-    @media (max-width: 860px) {
-      .sidebar {
-        position: static;
-      }
-    }
-
-    .sidebar h3 {
-      margin: 0;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #e5e7eb;
-    }
-
-    .sidebar-badge {
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .sidebar-badge span.pill {
-      padding: 2px 6px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .sidebar ol {
-      margin: 0;
-      padding-left: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .sidebar li {
-      line-height: 1.45;
-    }
-
-    .sidebar code {
-      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 11px;
-      background: rgba(15, 23, 42, 0.9);
-      padding: 2px 5px;
-      border-radius: 6px;
-      border: 1px solid rgba(30, 64, 175, 0.7);
-    }
-
-    .sidebar-footer {
-      margin-top: 4px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .sidebar-footer strong {
-      color: var(--accent);
-    }
-
-    footer {
-      margin-top: 26px;
-      font-size: 11px;
-      color: var(--muted);
+      background: #000;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
       text-align: center;
-      padding-bottom: 10px;
-      opacity: 0.85;
+      overflow-x: hidden;
     }
 
-    footer a {
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      text-underline-offset: 2px;
+    /* GLOW ANIMATION FOR HEADLINE */
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #ffffff55; }
+      50% { text-shadow: 0 0 25px #ffffffaa; }
+      100% { text-shadow: 0 0 10px #ffffff55; }
+    }
+
+    /* CTA BUTTON PULSE */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.015); }
+      100% { transform: scale(1); }
+    }
+
+    /* Subtle NEW Blink */
+    @keyframes blink {
+      0%, 90% { opacity: 1; }
+      95% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px 80px;
+    }
+
+    .headline {
+      font-size: 44px;
+      font-weight: 900;
+      text-transform: uppercase;
+      animation: glow 3s infinite ease-in-out;
+      margin-bottom: 10px;
+    }
+
+    .subcta {
+      font-size: 38px;
+      font-weight: 900;
+      color: #ffdd00;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .line3 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .new {
+      color: #ff1a1a;
+      font-weight: 900;
+      animation: blink 4s infinite;
+    }
+
+    .line4 {
+      font-size: 34px;
+      font-weight: 900;
+      margin-top: 10px;
+    }
+
+    .yes { color: #ff1a1a; }
+    .payout { color: #ffd700; }
+
+    .benefits {
+      margin-top: 10px;
+      font-size: 22px;
+      opacity: 0.95;
+    }
+
+    /* IMAGE AREA */
+    .image-row {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .image-row img {
+      max-width: 280px;
+      height: auto;
+      filter: drop-shadow(0 0 12px #000000aa);
+    }
+
+    .money {
+      border-radius: 8px;
+      filter: drop-shadow(0 0 16px #000000);
+    }
+
+    /* FORM */
+    .optin-form {
+      margin-top: 35px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .optin-form input {
+      width: 90%;
+      max-width: 500px;
+      padding: 14px 16px;
+      font-size: 17px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .cta-btn {
+      margin-top: 12px;
+      background: #ffdd00;
+      color: #000;
+      font-size: 23px;
+      padding: 18px 20px;
+      font-weight: 800;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 90%;
+      max-width: 650px;
+      animation: pulse 2.8s infinite ease-in-out;
+    }
+
+    .cta-btn:hover {
+      filter: brightness(0.88);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .headline { font-size: 32px; }
+      .subcta { font-size: 28px; }
+      .line3 { font-size: 24px; }
+      .line4 { font-size: 26px; }
+      .benefits { font-size: 18px; }
+      .image-row { flex-direction: column; gap: 20px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="page">
-    <header>
-      <div class="badge-row">
-        <div class="badge">
-          <span class="badge-dot"></span>
-          100% UNFILTERED REVIEWS
-        </div>
-      </div>
 
-      <div class="title-row">
-        <h1>
-          Brutally honest <span class="accent">review hub</span> – no fluff, no hype.
-        </h1>
-        <p class="subtitle">
-          Real-world tests. Clear verdicts. Direct links. If something is trash, I’ll say it.
-          If it’s worth your money and time, you’ll know exactly why.
-        </p>
-      </div>
+  <div class="wrapper">
 
-      <div class="hero-meta">
-        <span><strong>Updated regularly</strong> as new products drop</span>
-        <span class="divider"></span>
-        <span>Tech • Tools • Courses • Random stuff that should just work</span>
-      </div>
+    <div class="headline">TURN 3 LEADS INTO 3,000 — FAST!</div>
 
-      <div class="cta-bar">
-        <button class="cta-main" type="button">
-          <span class="cta-pulse-dot"></span>
-          <span class="cta-main-label">Start with the latest picks</span>
-          <span class="cta-main-sub">Scroll down to see the newest reviews</span>
-        </button>
-        <span class="cta-note">
-          Bookmark this page before you buy your next “game changer”.
-        </span>
-      </div>
-    </header>
+    <div class="subcta">TAKE ACTION NOW — BEFORE OTHERS DO!</div>
 
-    <main>
-      <div class="layout">
-        <!-- LEFT: REVIEW GRID -->
-        <section class="reviews-section">
-          <div class="section-header">
-            <div class="section-title">
-              <h2>Latest reviews</h2>
-              <span>Fresh takes. Clear yes/no answers. No time wasted.</span>
-            </div>
-            <div class="filter-chip">
-              <span class="dot"></span>
-              Most recent on top
-            </div>
-          </div>
+    <div class="line3">
+      This <span class="new">BRAND&nbsp;NEW</span> Affiliate Platform Pays Up To
+    </div>
 
-          <div class="reviews-grid" id="reviews-grid">
+    <div class="line4">
+      <span class="yes">YES!</span>
+      <span class="payout">$10,000 PER SALE</span>
+    </div>
 
-            <!-- ===========================
-                 TEMPLATE – COPY FOR NEW REVIEW
-                 ===========================
-            <article class="review-card">
-              <div class="review-image-wrapper">
-                <img src="images/YOUR-IMAGE.jpg" alt="Short product description" class="review-image" />
-                <div class="review-tag">CATEGORY</div>
-                <div class="review-rating">
-                  <span class="stars">★★★★☆</span>
-                  <span>4.0 / 5</span>
-                </div>
-              </div>
-              <div class="review-body">
-                <div class="review-title-row">
-                  <h3 class="review-title">Product / Course / Tool Name</h3>
-                </div>
-                <div class="review-meta">One-line verdict: worth it / skip it.</div>
-                <p class="review-text">
-                  2–3 honest sentences about why this is good, bad, or in-between.
-                  Make it specific: what problem does it actually solve, and what’s the catch?
-                </p>
-                <a href="https://your-affiliate-or-direct-link.com" target="_blank" rel="noopener noreferrer" class="review-link-btn">
-                  <span class="icon">↗</span>
-                  <span>View product</span>
-                </a>
-              </div>
-            </article>
-            ===========================
-            END TEMPLATE
-            =========================== -->
+    <div class="benefits">
+      $10k–$30k Monthly • Instant Weekly Payouts • Long-Term Residual Income
+    </div>
 
-            <!-- EXAMPLE REVIEW #1 -->
-            <article class="review-card">
-              <div class="review-image-wrapper">
-                <img src="images/sample-product-1.jpg" alt="Minimal mechanical keyboard on a dark desk" class="review-image" />
-                <div class="review-tag">TECH</div>
-                <div class="review-rating">
-                  <span class="stars">★★★★☆</span>
-                  <span>4.3 / 5</span>
-                </div>
-              </div>
-              <div class="review-body">
-                <div class="review-title-row">
-                  <h3 class="review-title">Minimal Mechanical Keyboard</h3>
-                </div>
-                <div class="review-meta">Verdict: great feel, annoying software.</div>
-                <p class="review-text">
-                  Typing feels fantastic and the build quality is way above average in this price range.
-                  The downside: the custom software is clunky and only works on desktop. If you’re okay
-                  configuring it once and forgetting it, it’s a strong buy.
-                </p>
-                <a href="https://example.com/keyboard" target="_blank" rel="noopener noreferrer" class="review-link-btn">
-                  <span class="icon">↗</span>
-                  <span>View product</span>
-                </a>
-              </div>
-            </article>
+    <!-- IMAGES -->
+    <div class="image-row">
+      <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhycmkm-Nn7vMqQi3KoPwmzm3K6DhjI2FtyJtliC9lSQaYm567h-l-SuPCXLFkXta5f1P1NIrvXs_okLjxrovXkIvPjFCxQMUXg-8d8Q3ioxJcUVG1r3Jl5wELVa7m1jsdhzfm9dRPxebCY-W9lF9E3TPHKUqfKM4ZheUDS9SiafZt1fPW7VEfV30DJ=s320">
 
-            <!-- EXAMPLE REVIEW #2 -->
-            <article class="review-card">
-              <div class="review-image-wrapper">
-                <img src="images/sample-product-2.jpg" alt="Online course interface on a laptop" class="review-image" />
-                <div class="review-tag">ONLINE COURSE</div>
-                <div class="review-rating">
-                  <span class="stars">★★★☆☆</span>
-                  <span>3.2 / 5</span>
-                </div>
-              </div>
-              <div class="review-body">
-                <div class="review-title-row">
-                  <h3 class="review-title">“Build a 6-Figure Side Hustle”</h3>
-                </div>
-                <div class="review-meta">Verdict: decent intro, weak depth.</div>
-                <p class="review-text">
-                  The mindset part is solid and motivating, but a lot of the “secrets”
-                  are just basic business common sense. Good if you’re a complete beginner,
-                  disappointing if you already tried to make money online before.
-                </p>
-                <a href="https://example.com/course" target="_blank" rel="noopener noreferrer" class="review-link-btn">
-                  <span class="icon">↗</span>
-                  <span>View course</span>
-                </a>
-              </div>
-            </article>
+      <img class="money" src="https://imgallery.llsvr.com/sherrodlowe.62afdd3bcaef4.png">
+    </div>
 
-            <!-- EXAMPLE REVIEW #3 -->
-            <article class="review-card">
-              <div class="review-image-wrapper">
-                <img src="images/sample-product-3.jpg" alt="Noise-cancelling headphones" class="review-image" />
-                <div class="review-tag">EVERYDAY GEAR</div>
-                <div class="review-rating">
-                  <span class="stars">★★★★★</span>
-                  <span>4.8 / 5</span>
-                </div>
-              </div>
-              <div class="review-body">
-                <div class="review-title-row">
-                  <h3 class="review-title">Wireless Noise-Cancelling Headphones</h3>
-                </div>
-                <div class="review-meta">Verdict: one of the few “regret-proof” buys.</div>
-                <p class="review-text">
-                  Kill background noise, focus faster, and survive loud trains and planes.
-                  Battery life is strong, comfort is good even after hours. Not the cheapest,
-                  but if your head is your main tool, this is basically buying more focus.
-                </p>
-                <a href="https://example.com/headphones" target="_blank" rel="noopener noreferrer" class="review-link-btn">
-                  <span class="icon">↗</span>
-                  <span>View product</span>
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
+    <!-- FORM -->
+    <form method="post" action="https://www.sendsteed.com/subscribe/" class="optin-form">
 
-        <!-- RIGHT: HOW-TO SIDEBAR -->
-        <aside class="sidebar">
-          <div class="sidebar-badge">
-            <span>How this page works</span>
-            <span class="pill">For you as creator</span>
-          </div>
-          <h3>Update reviews in under 2 minutes</h3>
-          <ol>
-            <li>
-              <strong>Upload your image</strong> to this repo, e.g. inside an <code>images/</code> folder.
-            </li>
-            <li>
-              Open <code>index.html</code>, search for <code>&lt;!-- TEMPLATE – COPY FOR NEW REVIEW --&gt;</code>.
-            </li>
-            <li>
-              <strong>Copy that whole block</strong> (the <code>&lt;article&gt; ... &lt;/article&gt;</code>),
-              paste it below the others.
-            </li>
-            <li>
-              Replace the <code>src</code>, title, rating, text and the <code>href</code> link.
-            </li>
-            <li>
-              Commit the changes – GitHub Pages updates your site automatically.
-            </li>
-          </ol>
-          <div class="sidebar-footer">
-            This is a pure static page: no database, no login, no complexity.
-            Just you, your takes, and a clean place to send people before they buy.
-            <br /><br />
-            <strong>Rule:</strong> if a new product pops up in your life, it earns a slot here only
-            if you’d genuinely recommend or warn a friend about it.
-          </div>
-        </aside>
-      </div>
-    </main>
+      <input name="e116667" required type="text" placeholder="your@email.com">
+      <input name="n116667" required type="text" placeholder="Name">
 
-    <footer>
-      Built with plain HTML &amp; CSS on GitHub Pages. No sponsored sugar-coating – if there’s an affiliate link, it’s because the product survived a reality check.
-    </footer>
+      <input type="hidden" name="lllid" value="116667">
+      <input type="hidden" name="lluid" value="sandyarta">
+      <input type="hidden" name="redirect" value="">
+      <input type="hidden" name="source" value="">
+
+      <button type="submit" class="cta-btn">
+        Unlock Your Escape Plan — Start Earning Today
+      </button>
+    </form>
+
   </div>
+
 </body>
 </html>
