@@ -8,28 +8,28 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #000;
+      background: #0A1A3A; /* 🔵 dunkelblauer Hintergrund */
       font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
+      color: #FFFFFF;
       text-align: center;
       overflow-x: hidden;
     }
 
-    /* GLOW ANIMATION FOR HEADLINE */
+    /* Glow Animation */
     @keyframes glow {
-      0% { text-shadow: 0 0 10px #ffffff55; }
+      0% { text-shadow: 0 0 10px #ffffff40; }
       50% { text-shadow: 0 0 25px #ffffffaa; }
-      100% { text-shadow: 0 0 10px #ffffff55; }
+      100% { text-shadow: 0 0 10px #ffffff40; }
     }
 
-    /* CTA BUTTON PULSE */
+    /* Button Pulse */
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.015); }
+      50% { transform: scale(1.02); }
       100% { transform: scale(1); }
     }
 
-    /* Subtle NEW Blink */
+    /* NEW blinking */
     @keyframes blink {
       0%, 90% { opacity: 1; }
       95% { opacity: 0.3; }
@@ -40,7 +40,7 @@
       width: 100%;
       max-width: 1100px;
       margin: auto;
-      padding: 40px 20px 80px;
+      padding: 50px 20px 80px;
     }
 
     .headline {
@@ -54,9 +54,9 @@
     .subcta {
       font-size: 38px;
       font-weight: 900;
-      color: #ffdd00;
-      text-transform: uppercase;
+      color: #FFDD00; /* Gelb */
       margin-bottom: 25px;
+      text-transform: uppercase;
     }
 
     .line3 {
@@ -66,7 +66,7 @@
     }
 
     .new {
-      color: #ff1a1a;
+      color: #FF1A1A; /* Rot */
       font-weight: 900;
       animation: blink 4s infinite;
     }
@@ -77,8 +77,8 @@
       margin-top: 10px;
     }
 
-    .yes { color: #ff1a1a; }
-    .payout { color: #ffd700; }
+    .yes { color: #FF1A1A; }
+    .payout { color: #FFD700; /* Gold */ }
 
     .benefits {
       margin-top: 10px;
@@ -86,7 +86,6 @@
       opacity: 0.95;
     }
 
-    /* IMAGE AREA */
     .image-row {
       margin-top: 40px;
       display: flex;
@@ -98,15 +97,14 @@
     .image-row img {
       max-width: 280px;
       height: auto;
-      filter: drop-shadow(0 0 12px #000000aa);
+      filter: drop-shadow(0 0 14px #000000);
     }
 
     .money {
       border-radius: 8px;
-      filter: drop-shadow(0 0 16px #000000);
+      filter: drop-shadow(0 0 20px #000000);
     }
 
-    /* FORM */
     .optin-form {
       margin-top: 35px;
       display: flex;
@@ -126,7 +124,7 @@
 
     .cta-btn {
       margin-top: 12px;
-      background: #ffdd00;
+      background: #FFDD00;
       color: #000;
       font-size: 23px;
       padding: 18px 20px;
@@ -143,7 +141,6 @@
       filter: brightness(0.88);
     }
 
-    /* MOBILE */
     @media (max-width: 768px) {
       .headline { font-size: 32px; }
       .subcta { font-size: 28px; }
@@ -176,16 +173,13 @@
       $10k–$30k Monthly • Instant Weekly Payouts • Long-Term Residual Income
     </div>
 
-    <!-- IMAGES -->
     <div class="image-row">
       <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhycmkm-Nn7vMqQi3KoPwmzm3K6DhjI2FtyJtliC9lSQaYm567h-l-SuPCXLFkXta5f1P1NIrvXs_okLjxrovXkIvPjFCxQMUXg-8d8Q3ioxJcUVG1r3Jl5wELVa7m1jsdhzfm9dRPxebCY-W9lF9E3TPHKUqfKM4ZheUDS9SiafZt1fPW7VEfV30DJ=s320">
-
+      
       <img class="money" src="https://imgallery.llsvr.com/sherrodlowe.62afdd3bcaef4.png">
     </div>
 
-    <!-- FORM -->
     <form method="post" action="https://www.sendsteed.com/subscribe/" class="optin-form">
-
       <input name="e116667" required type="text" placeholder="your@email.com">
       <input name="n116667" required type="text" placeholder="Name">
 
