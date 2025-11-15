@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Free Training Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      font-family: Arial, sans-serif;
+    }
+
+    .image-wrapper {
+      max-width: 100%;
+      cursor: pointer;
+    }
+
+    .image-wrapper img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Modal overlay */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    /* Modal box */
+    .modal {
+      background: #ffffff;
+      border-radius: 10px;
+      max-width: 420px;
+      width: 90%;
+      padding: 24px 24px 18px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      border: none;
+      background: transparent;
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal h2 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .modal p.subline {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 16px;
+    }
+
+    .modal p.guarantee {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 8px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    form input[type="email"],
+    form input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 0.95rem;
+    }
+
+    form button[type="submit"] {
+      margin-top: 4px;
+      padding: 11px 14px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: #ff9900;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    form button[type="submit"]:hover {
+      filter: brightness(0.95);
+    }
+
+    .modal small {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CLICKABLE IMAGE ONLY -->
+  <div class="image-wrapper" id="openModal">
+    <img src="https://s3content.s3.amazonaws.com/primemover/frontend-gifs/ol-splashpage-4.gif" 
+         alt="Free Training" />
+  </div>
+
+  <!-- POPUP MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="closeModal" aria-label="Close popup">&times;</button>
+
+      <h2>Where should we send your free training?</h2>
+      <p class="subline">
+        Enter your best email below to get instant access and start today.
+      </p>
+
+      <!-- YOUR EMAIL FORM (SendSteed) -->
+      <form method="post" action="https://www.sendsteed.com/subscribe/">
+        <input
+          name="e116667"
+          required
+          type="email"
+          placeholder="Your best email address…"
+        >
+        <input
+          name="n116667"
+          required
+          type="text"
+          placeholder="Your first name…"
+        >
+
+        <input type="hidden" name="lllid" value="116667">
+        <input type="hidden" name="lluid" value="sandyarta">
+        <input type="hidden" name="redirect" value="">
+        <input type="hidden" name="source" value="">
+
+        <button type="submit">Send Me The Training Now</button>
+      </form>
+
+      <p class="guarantee">
+        No spam. You can unsubscribe anytime.
+      </p>
+      <small>
+        By clicking the button, you agree to receive helpful emails about this training.
+      </small>
+    </div>
+  </div>
+
+  <script>
+    const openModalTrigger = document.getElementById('openModal');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    function openModal() {
+      modalOverlay.classList.add('active');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+    }
+
+    openModalTrigger.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+
+    // Close when clicking outside the modal
+    modalOverlay.addEventListener('click', function (e) {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
