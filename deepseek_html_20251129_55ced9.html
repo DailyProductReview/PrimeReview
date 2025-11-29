@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Legends - Premium Traffic</title>
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --gold: #ffd700;
+            --light: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            line-height: 1.4;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .landing-container {
+            max-width: 1300px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .sub-tagline {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent);
+            min-height: 120px;
+        }
+        
+        .feature-icon {
+            font-size: 24px;
+            color: var(--gold);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .feature-content h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--gold);
+        }
+        
+        .feature-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .feature-content p {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent), #ff6b95);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .cta-content h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .urgency {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 15px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 14px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .email-input {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .submit-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            font-size: 12px;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            opacity: 0.5;
+            font-size: 11px;
+        }
+        
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                align-items: flex-start;
+            }
+            
+            .landing-container {
+                padding: 20px;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .tagline {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                👑 Traffic Legends
+            </div>
+            <p class="tagline">Premium Traffic That Converts</p>
+            <p class="sub-tagline">140,000+ Targeted Contacts • 22,000+ Proven Buyers • $100 Per Referral</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Features Section -->
+            <div class="features-section">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-content">
+                            <div class="feature-number">TWENTY-FOUR</div>
+                            <div class="feature-title">140,000 Contact Solo Ads</div>
+                            <p>Your offer sent repeatedly to our 140,000+ CONTACT email list for maximum exposure.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-content">
+                            <div class="feature-number">6,000</div>
+                            <div class="feature-title">PRIME Ad Visits</div>
+                            <p>Your site showcased in premium spots across HercuList for thousands of targeted views.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-content">
+                            <div class="feature-number">TWENTY-FOUR</div>
+                            <div class="feature-title">22,000+ Buyers List Blasts</div>
+                            <p>Multiple submissions to our private list of 22,000+ PROVEN buyers who are ready to spend.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-content">
+                            <div class="feature-number">THIRTY-SIX</div>
+                            <div class="feature-title">Mega-Mail Submissions</div>
+                            <p>A relentless series of Mega-Mail sends to keep your offer in front of fresh prospects.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-content">
+                            <div class="feature-number">18-Hour</div>
+                            <div class="feature-title">Login i-BLAST</div>
+                            <p>Members logging in during your i-BLAST window are routed straight to your website first.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-content">
+                            <div class="feature-number">FORTY-FIVE</div>
+                            <div class="feature-title">Smart-List Submissions</div>
+                            <p>Repeated exposure to over 13,000+ Smart-list members who are used to seeing and acting on offers.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-content">
+                            <div class="feature-number">FORTY-FIVE</div>
+                            <div class="feature-title">HercuList PRO Submissions</div>
+                            <p>Extra firepower from our PRO segment, giving your link repeated visibility with serious marketers.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-content">
+                            <div class="feature-number">SIXTY</div>
+                            <div class="feature-title">Blurb/Mailer Keys</div>
+                            <p>Use these keys with the Regular Mailer and Hercu/PowerBlurbs for ongoing bursts of traffic.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-content">
+                            <div class="feature-number">EARN</div>
+                            <div class="feature-title">$100 Per Referral Sale</div>
+                            <p>Promote Traffic Legends as an affiliate and earn $100 each time someone orders through your link, paid to you within hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <div class="cta-content">
+                    <div class="urgency">LIMITED SPOTS - ACT NOW!</div>
+                    <h2>Get Premium Traffic Today!</h2>
+                    <p>Join successful marketers leveraging our premium traffic sources</p>
+                    
+                    <!-- Email Form -->
+                    <form method="post" action="https://www.sendsteed.com/subscribe/" class="email-form">
+                        <input name="e111574" required type="email" placeholder="Enter your email address..." class="email-input">
+                        <input type="hidden" name="lllid" value="111574">
+                        <input type="hidden" name="lluid" value="sandyarta">
+                        <input type="hidden" name="redirect" value="">
+                        <input type="hidden" name="source" value="landinglegends">
+                        <button type="submit" class="submit-btn">GET ACCESS NOW</button>
+                    </form>
+                    
+                    <!-- Stats -->
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">140K+</div>
+                            <div class="stat-label">Contacts</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">22K+</div>
+                            <div class="stat-label">Buyers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">$100</div>
+                            <div class="stat-label">Per Referral</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Affiliate Program</a>
+            </div>
+            <p class="copyright">© 2023 Traffic Legends. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form submission handler
+            const form = document.querySelector('.email-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                if (email) {
+                    alert('Thank you! We will contact you shortly with more information.');
+                    // In production, remove the alert and uncomment the next line:
+                    // this.submit();
+                }
+            });
+            
+            // Pulse animation for urgency element
+            const urgency = document.querySelector('.urgency');
+            setInterval(() => {
+                urgency.style.transform = urgency.style.transform === 'scale(1.05)' ? 'scale(1)' : 'scale(1.05)';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
