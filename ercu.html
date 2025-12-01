@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Pics to Enter | Herculist Traffic Deals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #f1f1f1;
+            min-height: 100vh;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .header {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            border: 2px solid #ff9800;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(to right, #ff9800, #ff5722, #ff9800);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #4fc3f7;
+            margin-bottom: 5px;
+            text-shadow: 0 0 8px rgba(79, 195, 247, 0.5);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #bbbbbb;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.2;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            height: 320px; /* Doppelt so groß wie vorher */
+            cursor: pointer;
+            background-color: #1a202c;
+        }
+
+        .image-item:hover {
+            transform: translateY(-5px) scale(1.03);
+            border-color: #ff9800;
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
+            z-index: 10;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Zeigt das gesamte Bild */
+            display: block;
+            background-color: #2d3748;
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.85);
+            color: #ff9800;
+            padding: 6px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .newsletter {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+
+        .newsletter-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #4fc3f7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .newsletter-form input {
+            padding: 10px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.85rem;
+            width: 100%;
+            max-width: 300px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: #ff9800;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .newsletter-form input::placeholder {
+            color: #aaaaaa;
+        }
+
+        .newsletter-form button {
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 87, 34, 0.4);
+        }
+
+        .footer {
+            margin-top: 15px;
+            padding: 10px;
+            color: #888;
+            font-size: 0.7rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1100px) {
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .image-item {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-item {
+                height: 280px;
+            }
+            
+            .title {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-height: 800px) {
+            .image-item {
+                height: 280px;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Zoom-In Effekt für bessere Lesbarkeit */
+        .image-item:hover img {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">CLICK PICS TO ENTER</h1>
+            <h2 class="subtitle">NEED BUYERS FOR YOUR OFFERS?</h2>
+            <p class="tagline">Discover powerful email marketing & traffic packages. Click any image to access exclusive Herculist deals!</p>
+        </header>
+
+        <div class="image-grid">
+            <!-- Image 1 - Traffic Legends -->
+            <div class="image-item" onclick="window.open('https://www.herculist.com/members/legends.cgi?naturallyinshape', '_blank')">
+                <img src="Screenshot 2025-12-01 at 10-33-33 Traffic Legends - Ultimate Traffic Package.png" 
+                     alt="Traffic Legends - THE MOST POWERFUL ONE-TIME TRAFFIC PACKAGE EVER RELEASED">
+                <div class="image-label">Traffic Legends - Ultimate Package</div>
+            </div>
+            
+            <!-- Image 2 - Traffic Bomb -->
+            <div class="image-item" onclick="window.open('https://www.herculist.com/members/trafficbomb.cgi?naturallyinshape', '_blank')">
+                <img src="Screenshot 2025-12-01 at 10-35-19 HercuList.png" 
+                     alt="HERCULIST TRAFFIC BOMB! The ULTIMATE Herculist Ad Package">
+                <div class="image-label">Herculist Traffic Bomb</div>
+            </div>
+            
+            <!-- Image 3 - $20 Deal -->
+            <div class="image-item" onclick="window.open('https://www.herculist.com/members/20deal.cgi?naturallyinshape', '_blank')">
+                <img src="Screenshot 2025-12-01 at 10-35-57 $20 Deal.png" 
+                     alt="Herculist Plus - Our Most Popular Ad Package for $20">
+                <div class="image-label">$20 Deal - Herculist Plus</div>
+            </div>
+            
+            <!-- Image 4 - Smart List Solos -->
+            <div class="image-item" onclick="window.open('https://www.herculist.com/members/smartsolos.cgi?naturallyinshape', '_blank')">
+                <img src="Screenshot 2025-12-01 at 10-38-27 Smart-list.com - MEGA-MAIL.png" 
+                     alt="Submit Your Ad to 140,000+ CONTACT & PROVEN BUYER Email Addresses">
+                <div class="image-label">Smart-list & Mega-Mail</div>
+            </div>
+        </div>
+
+        <div class="newsletter">
+            <h3 class="newsletter-title">Want More Deals Like These?</h3>
+            <p style="margin-bottom: 10px; color: #cccccc; font-size: 0.8rem;">Subscribe to our newsletter for exclusive traffic packages & special offers!</p>
+            
+            <form method="post" action="https://www.sendsteed.com/subscribe/" class="newsletter-form">
+                <div class="form-group">
+                    <input name="e116667" required type="email" placeholder="your@email.com">
+                    <input type="hidden" name="n116667" value="Subscriber">
+                    <input type="hidden" name="lllid" value="116667">
+                    <input type="hidden" name="lluid" value="sandyarta">
+                    <input type="hidden" name="redirect" value="">
+                    <input type="hidden" name="source" value="ercu5seiten">
+                    <button type="submit">Subscribe Now</button>
+                </div>
+            </form>
+        </div>
+
+        <footer class="footer">
+            <p>© 2025 Herculist Traffic Deals. All rights reserved.</p>
+            <p>Click any image to access exclusive traffic packages. Results may vary.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Verbesserte Bild-Ladefunktion mit Fallback
+        document.querySelectorAll('.image-item img').forEach(img => {
+            img.onerror = function() {
+                console.log('Image failed to load:', this.src);
+                // Erstelle einen Platzhalter mit Text, was auf dem Bild stehen sollte
+                const altText = this.alt;
+                const parent = this.parentElement;
+                
+                // Setze Hintergrund und Text
+                parent.style.background = 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)';
+                parent.innerHTML = `
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 20px; text-align: center;">
+                        <div style="color: #ff9800; font-weight: bold; font-size: 1.2rem; margin-bottom: 10px;">${parent.querySelector('.image-label').textContent}</div>
+                        <div style="color: #cbd5e0; font-size: 0.9rem;">${altText.substring(0, 100)}...</div>
+                    </div>
+                    <div class="image-label">${parent.querySelector('.image-label').textContent}</div>
+                `;
+            };
+            
+            // Bild-Lade-Indikator
+            img.onload = function() {
+                this.style.opacity = '1';
+            };
+            
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease';
+        });
+        
+        // Keyboard shortcuts für schnellen Zugriff
+        document.addEventListener('keydown', function(e) {
+            const items = document.querySelectorAll('.image-item');
+            if (e.key === '1' || e.key === 'Digit1') items[0]?.click();
+            if (e.key === '2' || e.key === 'Digit2') items[1]?.click();
+            if (e.key === '3' || e.key === 'Digit3') items[2]?.click();
+            if (e.key === '4' || e.key === 'Digit4') items[3]?.click();
+        });
+        
+        // Automatische Bildgrößenanpassung für beste Lesbarkeit
+        function adjustImageSizes() {
+            const images = document.querySelectorAll('.image-item img');
+            const containerWidth = document.querySelector('.image-grid').offsetWidth;
+            const itemWidth = containerWidth / 4 - 20; // 4 Spalten, 10px gap auf jeder Seite
+            
+            images.forEach(img => {
+                img.style.maxWidth = '100%';
+                img.style.maxHeight = '100%';
+            });
+        }
+        
+        // Initial anpassen und bei Fensteränderung
+        window.addEventListener('load', adjustImageSizes);
+        window.addEventListener('resize', adjustImageSizes);
+    </script>
+</body>
+</html>
