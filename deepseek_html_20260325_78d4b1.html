@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Get The Perfect Email Help Offers | Horror Edition</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Creepster', 'Impact', 'Segoe UI', 'Arial Black', cursive;
+    }
+
+    body {
+      background: #030000;
+      background-image: radial-gradient(circle at 20% 30%, #1a0505 0%, #010000 100%);
+      color: #e0c8b0;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* HORROR STATIC OVERLAY */
+    .horror-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 2px, transparent 2px, transparent 8px);
+      animation: staticFlicker 0.15s infinite;
+    }
+
+    @keyframes staticFlicker {
+      0% { opacity: 0.3; }
+      100% { opacity: 0.6; }
+    }
+
+    /* BLOODY SPLATTER & CREEPY VINES */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200"><path fill="rgba(100,0,0,0.15)" d="M120,180 Q150,130 190,150 T250,180 Q280,170 300,190 T340,220 Q370,230 360,260 T330,310 Q310,340 280,330 T220,320 Q190,330 170,310 T120,260 Q100,240 110,210 Z M480,450 Q510,420 540,450 T600,490 Q630,510 620,540 T580,590 Q550,620 510,600 T450,560 Q430,540 440,510 Z M70,750 Q100,720 130,750 T190,790 Q220,810 210,840 T180,890 Q160,910 130,890 T80,860 Q60,840 70,810 Z M620,820 Q650,790 680,820 T740,860 Q770,880 760,910 T730,960 Q710,980 680,960 T630,930 Q610,910 620,880 Z"/></svg>') repeat;
+      opacity: 0.25;
+      z-index: 1;
+    }
+
+    /* FLICKERING LIGHTNING */
+    .lightning-flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+      background: rgba(255, 200, 150, 0);
+      animation: lightningBurst 6s infinite;
+    }
+
+    @keyframes lightningBurst {
+      0%, 92%, 96%, 100% { background: rgba(255,200,150,0); }
+      94% { background: rgba(255,240,180,0.7); }
+      95% { background: rgba(255,220,120,0.9); }
+      97% { background: rgba(255,200,100,0.4); }
+    }
+
+    .container {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* HORROR TITLE */
+    .hero {
+      text-align: center;
+      margin: 0.8rem 0 1.2rem;
+      border-bottom: 4px solid #8b0000;
+      border-top: 4px solid #6a0000;
+      background: rgba(0,0,0,0.7);
+      border-radius: 70px;
+      padding: 1rem;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 30px rgba(139,0,0,0.5);
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-family: 'Creepster', 'Impact', cursive;
+      letter-spacing: 4px;
+      color: #cc3300;
+      text-shadow: 0 0 15px rgba(255,255,200,0.9), 0 0 8px white, 3px 3px 0px #3a0000;
+      word-break: break-word;
+    }
+
+    .subhead {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+      background: #1a0000cc;
+      backdrop-filter: blur(6px);
+      display: inline-block;
+      padding: 0.3rem 2rem;
+      border-radius: 60px;
+      border-left: 8px solid #ff3300;
+      border-right: 8px solid #aa0000;
+      color: #ffaa77;
+      text-shadow: 0 0 10px white;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      background: #2a0000aa;
+      padding: 8px 20px;
+      border-radius: 40px;
+      width: fit-content;
+      margin: 0 auto;
+      border: 1px solid #b44;
+      text-shadow: 0 0 5px rgba(255,200,150,0.8);
+    }
+
+    /* CAROUSEL BANNER - HORROR THEME */
+    .carousel-banner {
+      background: #0a0000cc;
+      backdrop-filter: blur(8px);
+      border-radius: 60px;
+      padding: 1rem 0;
+      margin: 2rem 0;
+      border: 2px solid #aa2222;
+      box-shadow: 0 0 25px rgba(200, 0, 0, 0.5);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .carousel-track {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scrollHorror 48s linear infinite;
+    }
+    .carousel-item {
+      display: inline-block;
+      margin: 0 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, filter 0.2s;
+      vertical-align: middle;
+    }
+    .carousel-item:hover { transform: scale(1.08); filter: drop-shadow(0 0 15px #ff4422);}
+    .carousel-item img {
+      height: 130px;
+      width: auto;
+      max-width: 210px;
+      object-fit: contain;
+      border-radius: 20px;
+      border: 3px solid #aa3333;
+      background: #1a0505;
+      box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+    }
+    .carousel-caption {
+      font-weight: bold;
+      background: #6a0000cc;
+      margin-top: 6px;
+      border-radius: 40px;
+      padding: 3px 12px;
+      font-size: 0.7rem;
+      color: #ffccaa;
+      text-shadow: 0 0 4px white;
+    }
+    @keyframes scrollHorror {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-44%); }
+    }
+
+    .click-prompt {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: #2a0000aa;
+      padding: 12px;
+      border-radius: 50px;
+      margin: 10px 0 35px;
+      border: 2px dashed #ff4422;
+      color: #ff8866;
+      text-shadow: 0 0 12px white, 0 0 5px #ffaa88;
+      letter-spacing: 2px;
+      animation: pulseText 1.8s infinite;
+    }
+    @keyframes pulseText {
+      0%, 100% { opacity: 1; text-shadow: 0 0 8px white; }
+      50% { opacity: 0.9; text-shadow: 0 0 18px #ff6644; }
+    }
+
+    /* PRODUCT GRID - double sized images */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 4rem;
+    }
+    .product-card {
+      background: linear-gradient(145deg, #1f0a0a, #080101);
+      border-radius: 42px;
+      padding: 1.5rem 1.2rem 1.8rem;
+      text-align: center;
+      transition: 0.25s;
+      border: 1px solid #aa4444;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.8);
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(139,0,0,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: #ff5533;
+      box-shadow: 0 0 28px #ff3300aa;
+    }
+    .product-img-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1a0303;
+      border-radius: 32px;
+      padding: 16px;
+      min-height: 300px;
+    }
+    .product-img {
+      max-width: 95%;
+      width: auto;
+      height: auto;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px black;
+      transition: 0.2s;
+      border: 2px solid #b44;
+    }
+    .shimmer-btn {
+      display: inline-block;
+      margin-top: 24px;
+      background: linear-gradient(120deg, #dd2200, #6a0000);
+      color: #fff0c0;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding: 14px 26px;
+      border-radius: 60px;
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 0 12px #ff3300, 0 4px 12px black;
+      position: relative;
+      overflow: hidden;
+      width: 88%;
+      font-family: 'Impact', sans-serif;
+      text-shadow: 0 0 6px white;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(115deg, rgba(255,255,200,0) 10%, rgba(255,100,50,0.6) 50%, rgba(255,255,200,0) 90%);
+      transform: rotate(25deg);
+      animation: horrorShimmer 2.2s infinite;
+    }
+    @keyframes horrorShimmer {
+      0% { transform: translateX(-100%) rotate(25deg);}
+      100% { transform: translateX(100%) rotate(25deg);}
+    }
+    .shimmer-btn:hover {
+      background: linear-gradient(120deg, #ff5533, #8a0000);
+      transform: scale(1.02);
+      box-shadow: 0 0 22px #ff6644;
+    }
+
+    /* POPUP MODAL - SCARY */
+    .popup-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s;
+    }
+    .popup-active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .popup-content {
+      background: radial-gradient(circle at 30% 20%, #2a0505, #010000);
+      max-width: 520px;
+      width: 90%;
+      border-radius: 56px;
+      padding: 2rem;
+      text-align: center;
+      border: 3px solid #ff4422;
+      box-shadow: 0 0 55px #ff2200aa;
+      position: relative;
+      animation: popupHorror 0.4s ease;
+    }
+    @keyframes popupHorror {
+      0% { transform: scale(0.85) rotate(-2deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0); opacity: 1; }
+    }
+    .popup-content h2 {
+      font-size: 2.2rem;
+      color: #ff6644;
+      font-family: 'Creepster', cursive;
+      text-shadow: 0 0 12px white;
+    }
+    .manipulative-text {
+      background: #6a0000dd;
+      padding: 14px;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 15px 0;
+      animation: redPulse 0.8s infinite;
+      color: #ffbb99;
+      text-shadow: 0 0 6px white;
+    }
+    @keyframes redPulse {
+      0% { background: #8a0000cc; box-shadow: 0 0 0 0 #ff5533; }
+      100% { background: #b80000cc; box-shadow: 0 0 0 10px rgba(200,0,0,0);}
+    }
+    .popup-form input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 60px;
+      border: none;
+      font-size: 1.1rem;
+      background: #2a0a0a;
+      color: #ffddbb;
+      text-align: center;
+    }
+    .popup-form button {
+      background: linear-gradient(90deg, #c22, #700);
+      border: none;
+      padding: 14px;
+      width: 100%;
+      border-radius: 60px;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: white;
+      cursor: pointer;
+      margin-top: 12px;
+      text-shadow: 0 0 5px white;
+    }
+    .close-popup {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #ff8866;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      border-top: 2px solid #a22;
+      color: #b77;
+      text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    }
+    @media (max-width: 800px) {
+      h1 { font-size: 2.4rem; }
+      .product-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .shimmer-btn { font-size: 1.2rem; width: 100%;}
+      .click-prompt { font-size: 1.2rem; }
+      .product-img-wrapper { min-height: 240px; }
+      .product-img { max-height: 220px; }
+    }
+
+    /* AUDIO BUTTON */
+    .audio-control {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 99;
+      background: #3a0000cc;
+      backdrop-filter: blur(8px);
+      border-radius: 50px;
+      padding: 10px 18px;
+      border: 1px solid #ff6644;
+      cursor: pointer;
+      font-weight: bold;
+      color: #ffaa88;
+      font-family: monospace;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .audio-control:hover {
+      background: #8a0000cc;
+      transform: scale(1.05);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="horror-overlay"></div>
+<div class="lightning-flash"></div>
+
+<div class="container">
+  <div class="hero">
+    <h1>📧 GET THE PERFECT EMAIL HELP OFFERS 📧</h1>
+    <div class="subhead">💀 HAUNTED BY BAD CONVERSIONS? THESE EMAIL TOOLS ARE TESTED 💀</div>
+    <div class="tagline">🎃 Horror-grade email solutions • Real results • Bloody effective 🎃</div>
+  </div>
+
+  <div class="carousel-banner"><div class="carousel-track" id="carouselTrack"></div></div>
+  <div class="click-prompt">🩸 CLICK ANY DEMONIC IMAGE → CLAIM THE OFFER 🩸</div>
+
+  <div class="product-grid" id="productGrid"></div>
+  <footer>© EMAIL HORROR HUNTER • Tested email tools & automation • Affiliate offers inside.</footer>
+</div>
+
+<div id="popupModal" class="popup-modal">
+  <div class="popup-content">
+    <span class="close-popup" id="closePopupBtn">&times;</span>
+    <h2>⚠️ EVIL EMAIL SECRETS ⚠️</h2>
+    <p><strong>🔥 EXCLUSIVE EMAIL SWIPES + BONUSES 🔥</strong></p>
+    <div class="manipulative-text">
+      🧛 ONLY 7 SOULS LEFT FOR EARLY ACCESS! 🧛<br>
+      DON'T MISS THE NEXT EMAIL WEAPON — JOIN THE DARK LIST!
+    </div>
+    <form method="post" action="https://www.sendsteed.com/subscribe/" class="popup-form">
+      <input type="email" name="e123432" required placeholder="your@email.com (enter if you dare)">
+      <input type="hidden" name="lllid" value="123432">
+      <input type="hidden" name="lluid" value="sandyarta">
+      <input type="hidden" name="redirect" value="">
+      <input type="hidden" name="source" id="popupSource" value="popupwpallthe offers workds">
+      <button type="submit">👉 GET CURSED EMAIL ACCESS 👈</button>
+    </form>
+    <div class="small-note" style="font-size:0.7rem; margin-top:12px;">Unsubscribe anytime. No demons will haunt you (probably).</div>
+  </div>
+</div>
+
+<div class="audio-control" id="audioToggleBtn">🔊 HORROR SOUND OFF</div>
+
+<script>
+  // PRODUCT DATA: images + warriorplus links (append /allprodwarrior at end)
+  const productItems = [
+    { img: "https://warriorplus.com/assets/user/listing_image/o-90626-prod_image.png?v=1773771194", link: "https://warriorplus.com/o2/a/tj21440/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-57391-prod_image.png?v=1637783855", link: "https://warriorplus.com/o2/a/ry09h9q/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-45434-prod_image.png?v=1600200245", link: "https://warriorplus.com/o2/a/xrpwb0/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-90198-prod_image.png?v=1771943161", link: "https://warriorplus.com/o2/a/b214j7x/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-74500-prod_image.png?v=1709464689", link: "https://warriorplus.com/o2/a/nt30wsm/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-72238-prod_image.png?v=1699616618", link: "https://warriorplus.com/o2/a/kstfqd/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-72144-prod_image.png?v=1698588097", link: "https://warriorplus.com/o2/a/d4f2x17/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-68639-prod_image.png?v=1685550807", link: "https://warriorplus.com/o2/a/r9vcgp/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-67301-prod_image.jpg?v=1680169654", link: "https://warriorplus.com/o2/a/bp026q/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-66603-prod_image.jpg?v=1678070566", link: "https://warriorplus.com/o2/a/zfmw6h/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-63344-prod_image.png?v=1663572278", link: "https://warriorplus.com/o2/a/f0lzkj/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-62336-prod_image.png?v=1659681801", link: "https://warriorplus.com/o2/a/d9cxys/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-60648-prod_image.png?v=1649902177", link: "https://warriorplus.com/o2/a/lj0zlq/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-43800-prod_image.png?v=1595401729", link: "https://warriorplus.com/o2/a/x7gq18/0" }
+  ];
+
+  // additional links from the request: Click Candy Ai Email Writer etc, but we include all given above.
+  // also extra warrior link /o2/a/tysg5sd/0 and /o2/a/b96brp8/0 etc - already covered? Adding extra items from request that were separate:
+  const extraItems = [
+    { img: "https://warriorplus.com/assets/user/listing_image/o-90198-prod_image.png?v=1771943161", link: "https://warriorplus.com/o2/a/b214j7x/0" },
+    { img: "https://warriorplus.com/assets/user/listing_image/o-74500-prod_image.png?v=1709464689", link: "https://warriorplus.com/o2/a/nt30wsm/0" }
+  ];
+  // merge without duplicates (but it's fine)
+  const allProducts = [...productItems];
+  // ensure no duplicates by image url set
+  const uniqueMap = new Map();
+  allProducts.forEach(p => uniqueMap.set(p.img, p));
+  const finalProducts = Array.from(uniqueMap.values());
+
+  function getFullLink(link) {
+    let clean = link.trim();
+    if (clean.includes("warriorplus.com")) {
+      if (!clean.endsWith('/0')) return clean + "/allprodwarrior";
+      return clean + "/allprodwarrior";
+    }
+    return clean;
+  }
+
+  const grid = document.getElementById('productGrid');
+  const carousel = document.getElementById('carouselTrack');
+
+  function buildAll() {
+    grid.innerHTML = '';
+    carousel.innerHTML = '';
+    finalProducts.forEach(item => {
+      const finalUrl = getFullLink(item.link);
+      // card
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      const wrapper = document.createElement('div');
+      wrapper.className = 'product-img-wrapper';
+      const img = document.createElement('img');
+      img.src = item.img;
+      img.className = 'product-img';
+      img.alt = "email tool";
+      img.loading = 'lazy';
+      img.onerror = () => { img.src = 'https://placehold.co/500x350?text=EMAIL+HORROR'; };
+      wrapper.appendChild(img);
+      const btn = document.createElement('a');
+      btn.href = finalUrl;
+      btn.target = '_blank';
+      btn.rel = 'nofollow sponsored';
+      btn.className = 'shimmer-btn';
+      btn.textContent = '💀 GET EMAIL WEAPON 💀';
+      card.appendChild(wrapper);
+      card.appendChild(btn);
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => window.open(finalUrl, '_blank'));
+      grid.appendChild(card);
+
+      // carousel
+      const carItem = document.createElement('div');
+      carItem.className = 'carousel-item';
+      const carImg = document.createElement('img');
+      carImg.src = item.img;
+      carImg.style.height = "130px";
+      carImg.style.width = "auto";
+      carImg.style.maxWidth = "210px";
+      carImg.style.objectFit = "contain";
+      const cap = document.createElement('div');
+      cap.className = 'carousel-caption';
+      cap.textContent = '🩸 CLICK & CONVERT 🩸';
+      carItem.appendChild(carImg);
+      carItem.appendChild(cap);
+      carItem.addEventListener('click', () => window.open(finalUrl, '_blank'));
+      carousel.appendChild(carItem);
+    });
+    // clones for infinite loop
+    const clones = finalProducts.map(item => {
+      const cloneDiv = document.createElement('div');
+      cloneDiv.className = 'carousel-item';
+      const cImg = document.createElement('img');
+      cImg.src = item.img;
+      cImg.style.height = "130px";
+      cImg.style.width = "auto";
+      cImg.style.maxWidth = "210px";
+      const caption = document.createElement('div');
+      caption.className = 'carousel-caption';
+      caption.textContent = '💀 EVIL DEAL 💀';
+      cloneDiv.appendChild(cImg);
+      cloneDiv.appendChild(caption);
+      cloneDiv.addEventListener('click', () => window.open(getFullLink(item.link), '_blank'));
+      return cloneDiv;
+    });
+    clones.forEach(cl => carousel.appendChild(cl));
+  }
+
+  buildAll();
+
+  // POPUP logic
+  let popupShown = false;
+  const modal = document.getElementById('popupModal');
+  const closeBtn = document.getElementById('closePopupBtn');
+  function showPopup() { if(!popupShown){ modal.classList.add('popup-active'); popupShown = true; } }
+  setTimeout(showPopup, 1800);
+  closeBtn.addEventListener('click', () => modal.classList.remove('popup-active'));
+  modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('popup-active'); });
+  const sourceField = document.getElementById('popupSource');
+  if(sourceField) sourceField.value = "popupwpallthe offers workds";
+  window.addEventListener('scroll', () => { if(!popupShown && window.scrollY > 500) showPopup(); });
+
+  // HORROR AUDIO (scary ambient sound)
+  let audio = null;
+  let audioEnabled = false;
+  const audioBtn = document.getElementById('audioToggleBtn');
+  
+  function initAudio() {
+    if (!audio) {
+      audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+      audio.loop = true;
+      audio.volume = 0.35;
+    }
+  }
+  
+  function playHorrorSound() {
+    if (audio && audioEnabled) {
+      audio.play().catch(e => console.log("Audio play blocked", e));
+    }
+  }
+  
+  audioBtn.addEventListener('click', () => {
+    initAudio();
+    if (!audioEnabled) {
+      audioEnabled = true;
+      audio.play().catch(e => { console.log("autoplay blocked, user interaction needed"); });
+      audioBtn.innerHTML = "🔊 HORROR SOUND ON";
+      audioBtn.style.background = "#8a2222cc";
+    } else {
+      audioEnabled = false;
+      audio.pause();
+      audioBtn.innerHTML = "🔇 HORROR SOUND OFF";
+      audioBtn.style.background = "#3a0000cc";
+    }
+  });
+  
+  // try to start on any user click (first interaction)
+  document.body.addEventListener('click', () => {
+    if (audio && !audioEnabled) {
+      // do nothing, user must click button
+    }
+  }, { once: false });
+
+  function restartCarousel() {
+    const track = document.getElementById('carouselTrack');
+    if(track) { track.style.animation = 'none'; track.offsetHeight; track.style.animation = 'scrollHorror 48s linear infinite'; }
+  }
+  window.addEventListener('load', restartCarousel);
+  setTimeout(restartCarousel, 1000);
+</script>
+</body>
+</html>
