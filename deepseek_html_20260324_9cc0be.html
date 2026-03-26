@@ -341,3 +341,345 @@
     </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>New Affiliate Platform | Earn $497 + 2% Lifetime or $10K per Sale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Ultra-light, fast-loading system fonts + modern fallback */
+        body {
+            background: radial-gradient(circle at 10% 20%, #0a0c12 0%, #030507 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+            padding: 1.5rem;
+            margin: 0;
+        }
+
+        /* Glassmorphism card — lightweight, no heavy shadows, fast paint */
+        .landing-card {
+            max-width: 880px;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 2.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            padding: 2.5rem 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.6);
+            transition: all 0.2s ease;
+        }
+
+        /* UBERTITEL — small, sharp, authoritative */
+        .uber-title {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #F5B042;
+            background: rgba(245, 176, 66, 0.12);
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.75rem;
+            backdrop-filter: blur(2px);
+            font-family: inherit;
+            border: 0.5px solid rgba(245, 176, 66, 0.3);
+        }
+
+        /* MAIN HEADLINE — dark psychology, pain/solution, strong weight */
+        .headline {
+            font-size: clamp(2.2rem, 7vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #FFFFFF;
+            margin-bottom: 1.25rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .headline span {
+            background: linear-gradient(135deg, #F5B042 0%, #FFD966 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        /* REFERRAL LINE - size reduced by 2 steps from original headline scale */
+        /* Original referral line was around 1.6rem-2.6rem, now 2 steps smaller: ~1.1rem-1.8rem */
+        .referral-line {
+            font-size: clamp(1.1rem, 3.8vw, 1.8rem);
+            font-weight: 700;
+            line-height: 1.35;
+            color: #FFFFFF;
+            margin-top: 0.5rem;
+        }
+
+        .referral-line span {
+            background: linear-gradient(135deg, #F5B042 0%, #FFD966 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        /* SALES LINE - size reduced by 2 steps from original sales-line */
+        /* Original sales-line was ~1.4rem-2.2rem, now ~0.95rem-1.55rem */
+        .sales-line {
+            font-size: clamp(0.95rem, 3.2vw, 1.55rem);
+            font-weight: 600;
+            line-height: 1.35;
+            color: #E8EDFF;
+            margin-top: 0.3rem;
+        }
+
+        .sales-line span {
+            background: linear-gradient(135deg, #F5B042 0%, #FFD966 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        /* SUBHEADLINE — size reduced by 3 steps compared to original subheadline */
+        /* Original subheadline had clamp(1rem,4vw,1.35rem), now 3 steps smaller: ~0.75rem-1rem */
+        .subheadline {
+            font-size: clamp(0.75rem, 2.8vw, 1rem);
+            font-weight: 500;
+            color: #C0C9DD;
+            line-height: 1.45;
+            margin-bottom: 2rem;
+            border-left: 3px solid #F5B042;
+            padding-left: 1.2rem;
+        }
+
+        /* BENEFIT HIGHLIGHT — scannable & authoritative */
+        .value-badge {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .pill {
+            background: rgba(255,255,245,0.04);
+            border: 0.5px solid rgba(245, 176, 66, 0.4);
+            border-radius: 60px;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #FFDE9C;
+            backdrop-filter: blur(4px);
+        }
+        .pill strong {
+            color: #F5B042;
+            font-weight: 700;
+        }
+
+        /* FORM SECTION — clean, fast, no external assets */
+        .form-container {
+            background: rgba(0,0,0,0.45);
+            border-radius: 2rem;
+            padding: 0.2rem;
+            margin: 2rem 0 1.2rem;
+        }
+        .form-inner {
+            background: transparent;
+            width: 100%;
+        }
+        .email-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+            width: 100%;
+        }
+        .email-input {
+            flex: 3;
+            min-width: 180px;
+            background: #0E111B;
+            border: 1px solid #2A2F3F;
+            border-radius: 60px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: white;
+            font-family: inherit;
+            transition: all 0.2s;
+            outline: none;
+        }
+        .email-input:focus {
+            border-color: #F5B042;
+            box-shadow: 0 0 0 3px rgba(245,176,66,0.2);
+        }
+        .email-input::placeholder {
+            color: #6A6F82;
+            font-weight: 400;
+        }
+        .submit-btn {
+            flex: 1;
+            background: linear-gradient(105deg, #F5B042 0%, #E09D32 100%);
+            border: none;
+            border-radius: 60px;
+            padding: 1rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: inherit;
+            color: #0A0C12;
+            cursor: pointer;
+            transition: 0.15s linear;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 14px rgba(245,176,66,0.25);
+            white-space: nowrap;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(105deg, #FFC55A 0%, #F5AB2E 100%);
+            transform: scale(0.98);
+            box-shadow: 0 4px 10px rgba(245,176,66,0.3);
+        }
+        .small-note {
+            font-size: 0.75rem;
+            color: #8F95AA;
+            text-align: center;
+            margin-top: 1rem;
+            letter-spacing: 0.2px;
+        }
+        .guarantee-line {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.8rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #A9B2D0;
+            border-top: 0.5px solid rgba(245,176,66,0.3);
+            padding-top: 1.8rem;
+        }
+        .guarantee-line span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        /* fast loading, no external webfonts except system fallback, but Inter is modern */
+        @supports (font-variation-settings: normal) {
+            body { font-family: 'Inter Variable', system-ui, sans-serif; }
+        }
+        /* responsive */
+        @media (max-width: 640px) {
+            .landing-card {
+                padding: 1.8rem 1.2rem;
+            }
+            .email-group {
+                flex-direction: column;
+            }
+            .submit-btn {
+                width: 100%;
+                white-space: normal;
+                text-align: center;
+            }
+            .pill {
+                font-size: 0.75rem;
+            }
+            .guarantee-line {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.6rem;
+            }
+            /* keep relative sizing even on mobile */
+            .referral-line {
+                font-size: clamp(1rem, 3.5vw, 1.7rem);
+            }
+            .sales-line {
+                font-size: clamp(0.9rem, 3vw, 1.45rem);
+            }
+            .subheadline {
+                font-size: clamp(0.7rem, 2.6vw, 0.95rem);
+            }
+        }
+        /* zero FOUT, fast render */
+        .headline, .referral-line, .sales-line, .subheadline, .uber-title {
+            animation: fadeSlideUp 0.4s ease-out;
+        }
+        @keyframes fadeSlideUp {
+            0% { opacity: 0; transform: translateY(12px);}
+            100% { opacity: 1; transform: translateY(0);}
+        }
+        hr {
+            display: none;
+        }
+        a, a:visited {
+            text-decoration: none;
+        }
+        
+        /* Additional micro spacing polish for clarity */
+        .sales-line {
+            margin-bottom: 0.5rem;
+        }
+        .referral-line + .sales-line {
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-card">
+        <!-- Übertitel: New Affiliate Platform -->
+        <div class="uber-title">⚡ NEW AFFILIATE PLATFORM</div>
+        <!-- Haupt-Headline: Dark Psychology + Pain/Solution -->
+        <div class="headline">
+            "They earn. <span>You collect.</span>
+        </div>
+        
+        <!-- Referrals line - font size reduced by 2 steps from original larger size -->
+        <div class="referral-line">
+            Referrals → $497 upfront + 2% forever (from your referrals)
+        </div>
+        
+        <!-- Your own sales line - font size reduced by 2 steps compared to previous sales-line version -->
+        <div class="sales-line">
+            Your own sales: <span>four‑ to five‑figure commissions per sale</span>
+        </div>
+        
+        <!-- Subheadline: exact requirement: "Please confirm your email to access the platform. Access details sent instantly by email" 
+             Font size reduced by 3 steps relative to original subheadline -->
+        <div class="subheadline">
+            Please confirm your email to access the platform.<br>
+            Access details sent instantly by email
+        </div>
+  
+        <!-- Formular - exactly matching action + hidden fields, optimized for conversion -->
+        <div class="form-container">
+            <form method="post" action="https://www.sendsteed.com/subscribe/" class="form-inner">
+                <div class="email-group">
+                    <input type="email" name="e123432" required="" class="email-input" placeholder="your@email.com" autocomplete="email">
+                    <input type="hidden" name="lllid" value="123432">
+                    <input type="hidden" name="lluid" value="sandyarta">
+                    <input type="hidden" name="redirect" value="">
+                    <input type="hidden" name="source" value="">
+                    <button type="submit" class="submit-btn">Claim access →</button>
+                </div>
+                <div class="small-note">
+                    ✓ No spam · Instant affiliate access · Zero traffic required
+                </div>
+            </form>
+        </div>
+        <!-- extra dark psych trust + urgency with exact required copy: 
+             first line: Please confirm your email to access the platform.
+             second line: Access details sent instantly by email -->
+        <div class="guarantee-line">
+            <span>🔒 Please confirm your email to access the platform.</span>
+            <span>💸 Access details sent instantly by email</span>
+        </div>
+    </div>
+</body>
+</html>
