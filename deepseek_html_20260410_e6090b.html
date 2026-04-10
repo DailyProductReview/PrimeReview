@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>twiceseite | Twice-Confirmed Buyer Rotator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f4f8;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e4edf2;
+            transition: all 0.2s;
+        }
+
+        /* main title style */
+        .title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.3;
+            color: #0a2b3e;
+            margin-bottom: 1rem;
+        }
+
+        .title span {
+            background: linear-gradient(135deg, #1e6b3e, #2b8c5a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Blue color for "BUT You Unlock TWICE CONFIRMED Buyer Traffic" — full segment in blue */
+        .blue-highlight {
+            color: #1e5f9e;
+            background: none;
+            font-weight: 800;
+        }
+
+        /* Smaller text for the part after the dash: "You Can Add Endless WarriorPlus Links to the Rotator (yes, even direct W+ links)" 
+           and we removed the word "And" and "WarriorPlus" as requested. */
+        .smaller-traffic-note {
+            font-size: 0.85rem;      /* one number smaller than base title size (which is ~1.75rem, so 0.85rem is significantly smaller) */
+            font-weight: 600;
+            color: #2c5a6e;
+            display: inline-block;
+            margin-top: 2px;
+            line-height: 1.35;
+        }
+
+        /* first subtitle styling — shorter version and smaller font */
+        .subtitle-short {
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: #2c5a6e;
+            margin-bottom: 1.8rem;
+            border-left: 3px solid #2b7a4b;
+            padding-left: 1rem;
+            background: #fafefc;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* extra mini note for clarity but not intrusive */
+        .inline-small {
+            font-size: 0.8rem;
+            color: #3d7b5c;
+        }
+
+        .form-group {
+            margin-top: 0.5rem;
+        }
+
+        .email-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .email-input {
+            flex: 3;
+            min-width: 200px;
+        }
+
+        .email-input input {
+            width: 100%;
+            padding: 0.85rem 1.2rem;
+            font-size: 1rem;
+            border: 1.5px solid #cbdde6;
+            border-radius: 60px;
+            outline: none;
+            transition: all 0.2s;
+            font-family: inherit;
+            background: #fff;
+        }
+
+        .email-input input:focus {
+            border-color: #2b7a4b;
+            box-shadow: 0 0 0 3px rgba(43, 122, 75, 0.1);
+        }
+
+        .submit-btn button {
+            background: #2b7a4b;
+            border: none;
+            padding: 0.85rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            font-family: inherit;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .submit-btn button:hover {
+            background: #1f5e3a;
+            transform: scale(0.98);
+        }
+
+        .small-footer {
+            margin-top: 1.3rem;
+            font-size: 0.7rem;
+            color: #6f8f9f;
+            text-align: center;
+            border-top: 1px solid #e2edf2;
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .title {
+                font-size: 1.4rem;
+            }
+            .email-wrapper {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .submit-btn button {
+                width: 100%;
+            }
+            .subtitle-short {
+                font-size: 0.85rem;
+            }
+            .smaller-traffic-note {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .title {
+                font-size: 1.25rem;
+            }
+            .blue-highlight {
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- TITLE: adjusted exactly as required 
+         Original structure: "👉 You Invest $59.95 and 5 Minutes… BUT You Unlock TWICE CONFIRMED Buyer Traffic – And You Can Add Endless WarriorPlus Links to the Rotator (yes, even direct W+ links)"
+         
+         CHANGES MADE:
+         1. "BUT You Unlock TWICE CONFIRMED Buyer Traffic" is colored blue (using .blue-highlight)
+         2. After the dash, we removed the word "And" and also removed "WarriorPlus" from that segment.
+            So the ending becomes: "– You Can Add Endless Links to the Rotator (yes, even direct W+ links)"
+            Also we made that entire trailing part a smaller font size (.smaller-traffic-note)
+         3. The dash and the rest of the sentence appears on the same line, but the smaller text is applied.
+    -->
+    <div class="title">
+        👉 <span>You Invest $59.95 and 5 Minutes…</span> 
+        <span class="blue-highlight">BUT You Unlock TWICE CONFIRMED Buyer Traffic</span> 
+        <span class="smaller-traffic-note">– You Can Add Endless Links to the Rotator (yes, even direct W+ links)</span>
+    </div>
+
+    <!-- LOWER TEXT: shortened version as requested (original text about twice-confirmed, etc.) 
+         The original subtitle text was: 
+         "👉 Once-confirmed = we test on our own offers first. Twice-confirmed = members verify with real sales. Then we rebuy ONLY twice-confirmed winners. YOU add unlimited WarriorPlus links – even direct affiliate links. No limits. Your CR rises over time."
+         
+         New shorter version (keeping core meaning, fewer words, more compact):
+    -->
+    <div class="subtitle-short">
+        👉 Once-confirmed = test on our offers. Twice-confirmed = members verify with real sales. Then rebuy only twice-confirmed winners. You add unlimited links – even direct affiliate links. No limits. CR rises over time.
+    </div>
+
+    <!-- original email signup form (exactly as provided, unchanged) -->
+    <div class="form-group">
+        <form method="post" action="https://www.sendsteed.com/subscribe/">
+            <div class="email-wrapper">
+                <div class="email-input">
+                    <input name="e123771" required="" type="email" placeholder="your@email.com">
+                </div>
+                <div class="submit-btn">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+            <input type="hidden" name="lllid" value="123771">
+            <input type="hidden" name="lluid" value="sandyarta">
+            <input type="hidden" name="redirect" value="">
+            <input type="hidden" name="source" value="">
+        </form>
+    </div>
+
+    <!-- tiny bottom note for trust (optional but clean) -->
+    <div class="small-footer">
+        ✅ twice-confirmed buyer traffic • unlimited rotator links • CR optimization
+    </div>
+</div>
+</body>
+</html>
